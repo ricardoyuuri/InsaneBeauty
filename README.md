@@ -1,14 +1,14 @@
 # InsaneBeauty
 
-
+Repositório criado para o fim de guardar informações do software da InsaneBeauty
 
 # Requisitos 
 
 - [ ] CRUD Agendamento
 - [ ] CRUD Cadastro
 - [ ] CRUD Login
-- [ ] Interface de telas da solução, como:/**
-      - []Unidades/**
+- [ ] Interface de telas da solução, como:
+      - []Unidades
       - []Serviços
       - []Profissionais
       - []Sobre Nós
@@ -30,7 +30,7 @@ Lista todos os dados necessários para realizar um agendamento de serviço no so
 200 sucesso
 
 ---
-GET /categoria/{id}
+GET /agendamento/{id}
 
 Retorna os detalhes de uma categoria com o 'id' informado.
 
