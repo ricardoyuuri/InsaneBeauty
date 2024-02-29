@@ -18,9 +18,9 @@ Repositório criado para o fim de guardar informações do software da InsaneBea
 - [ ] Dashboard
 - [ ] Autenticação
 
-#Endpoints 
+# Endpoints 
 
-#Agendamento 
+# Agendamento 
 
 GET /agendamento/
 
