@@ -1,19 +1,30 @@
 # InsaneBeauty
 
-## Requisitos 
 
-- [ ] CRUD Movimentações 
-- [ ] CRUD Categorias 
+
+# Requisitos 
+
+- [ ] CRUD Agendamento
+- [ ] CRUD Cadastro
+- [ ] CRUD Login
+- [ ] Interface de telas da solução, como:
+      Unidades
+      Serviços
+      Profissionais
+      Sobre Nós
+      Contato
+      Home
+      Páginas de Agendamento/Cadastro/Login concluído com sucesso  
 - [ ] Dashboard
 - [ ] Autenticação
 
-##Endpoints 
+#Endpoints 
 
-##Agendamentos 
+#Agendamento 
 
 GET /agendamento/
 
-Lista todos os dados necessários para realizar um agendamento de serviço.
+Lista todos os dados necessários para realizar um agendamento de serviço no software da InsaneBeauty. O sistema irá requisitar dados como: Nome completo, telefone, serviço, data e hora.
 
 *Códigos de status*
 200 sucesso
