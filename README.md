@@ -8,7 +8,7 @@ Repositório criado para o fim de guardar informações do software da InsaneBea
 - [ ] CRUD Cadastro
 - [ ] CRUD Login
 - [ ] Interface de telas da solução, como:
-      - []Unidades
+      - [ ]Unidades
       - []Serviços
       - []Profissionais
       - []Sobre Nós
