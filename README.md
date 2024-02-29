@@ -45,9 +45,9 @@ Cadastrar um novo agendamento no banco de dados.
 
 | campo | tipo | obrigatório | descrição 
 |-------|------|:-----------:|-----------
-| nome completo  |string(50)|sim| nome completo do usuário para cadastrar de novo agendamento. 
+| nome completo  |string(50)|sim| nome completo do usuário para cadastrar novo agendamento. 
 | telefone |number(10)|sim| telefone do usuário para possível contato acerca do agendamento.
-| serviço |string(25)|sim| nome do serviço do qual deseja realizar.
+| serviço |ENUM|sim| nome do serviço do qual deseja realizar.
 | data |date|sim| data em que o serviço será realizado.
 | hora |time|sim| horário em que o serviço será realizado.
 
@@ -71,9 +71,9 @@ Altera o agendamento com o 'id' informado.
 
 | campo | tipo | alterável | descrição 
 |-------|------|:-----------:|-----------
-| nome completo  |string(50)|sim| novo nome completo do usuário para cadastrar de novo agendamento. 
+| nome completo  |string(50)|sim| novo nome completo do usuário para atualizar agendamento. 
 | telefone |number(10)|sim| novo telefone do usuário para possível contato acerca do agendamento.
-| serviço |string(25)|sim| novo nome do serviço do qual deseja realizar.
+| serviço |ENUM|sim| novo nome do serviço do qual deseja realizar.
 | data |date|sim| nova data em que o serviço será realizado.
 | hora |time|sim| novo horário em que o serviço será realizado.
 
@@ -87,6 +87,9 @@ Altera o agendamento com o 'id' informado.
 js
 {
     "id": 1,
-    "nome": "Alimentação",
-    "icone": "fast-food"
+    "nome_completo": "Beyoncé Giselle Knowles-Carter",
+    "telefone": 11995547959,
+    "servico": "Manicure",
+    "data": "2024-02-13",
+    "hora": "10:00:00"
 }
