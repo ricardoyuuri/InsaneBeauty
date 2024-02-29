@@ -8,7 +8,7 @@
 - [ ] CRUD Cadastro
 - [ ] CRUD Login
 - [ ] Interface de telas da solução, como:
-      ##- []Unidades
+      ##Unidades
       - []Serviços
       - []Profissionais
       - []Sobre Nós
