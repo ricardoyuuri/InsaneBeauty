@@ -150,7 +150,7 @@ DELETE /cadastro/{id}
 Deleta cadastro com o 'id' informado.
 
 *Códigos de status*
-- 204 apagado/cancelado com sucesso
+- 204 apagado com sucesso
 - 404 id não encontrado
 
 ---
@@ -228,7 +228,7 @@ DELETE /login/{id}
 Deleta login com o 'id' informado.
 
 *Códigos de status*
-- 204 apagado/cancelado com sucesso
+- 204 apagado com sucesso
 - 404 id não encontrado
 
 ---
