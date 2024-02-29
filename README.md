@@ -45,11 +45,11 @@ Cadastrar um novo agendamento no banco de dados.
 
 | campo | tipo | obrigatório | descrição 
 |-------|------|-------------|-----------
-| nome completo  |string(50)|::sim::| nome completo do usuário para cadastrar de novo agendamento. 
-| telefone |number(10)|::sim::| telefone do usuário para possível contato acerca do agendamento.
-| serviço |string(25)|::sim::| nome do serviço do qual deseja realizar.
-| data |date|::sim::| informar a data em que o serviço será realizado.
-| hora |time|::sim::| informar o horário em que o serviço será realizado.
+| nome completo  |string(50)|:sim:| nome completo do usuário para cadastrar de novo agendamento. 
+| telefone |number(10)|:sim:| telefone do usuário para possível contato acerca do agendamento.
+| serviço |string(25)|:sim:| nome do serviço do qual deseja realizar.
+| data |date|:sim:| informar a data em que o serviço será realizado.
+| hora |time|:sim:| informar o horário em que o serviço será realizado.
 
 *Códigos de status*
 201 criado com sucesso
