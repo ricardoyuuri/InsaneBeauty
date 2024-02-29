@@ -44,35 +44,38 @@ POST/agendamento
 Cadastrar um novo agendamento no banco de dados.
 
 | campo | tipo | obrigatório | descrição 
-|-------|------|-------------|-----------
-| nome completo  |string(50)|: sim :| nome completo do usuário para cadastrar de novo agendamento. 
-| telefone |number(10)|:sim:| telefone do usuário para possível contato acerca do agendamento.
-| serviço |string(25)|:sim:| nome do serviço do qual deseja realizar.
-| data |date|:sim:| informar a data em que o serviço será realizado.
-| hora |time|:sim:| informar o horário em que o serviço será realizado.
+|-------|------|:-----------:|-----------
+| nome completo  |string(50)|sim| nome completo do usuário para cadastrar de novo agendamento. 
+| telefone |number(10)|sim| telefone do usuário para possível contato acerca do agendamento.
+| serviço |string(25)|sim| nome do serviço do qual deseja realizar.
+| data |date|sim| data em que o serviço será realizado.
+| hora |time|sim| horário em que o serviço será realizado.
 
 *Códigos de status*
 201 criado com sucesso
 400 validação falhou
 
 ---
-DELETE /categoria/{id}
+DELETE /agendamento/{id}
 
-Apaga a categoria com o 'id' informado.
+Deletar/cancelar agendamento com o 'id' informado.
 
 *Códigos de status*
-204 apagado com sucesso
+204 apagado/cancelado com sucesso
 404 id não encontrado
 
 ---
-PUT /categoria/{id}
+PUT /agendamento/{id}
 
-Altera a categoria com o 'id' informado.
+Altera o agendamento com o 'id' informado.
 
-| campo | tipo | obrigatório | descrição 
-|-------|------|-------------|-----------
-| nome  |string|    sim      | novo nome curto para identificar a categoria 
-| icone |string|    nao      | novo nome do icone conforme biblioteca material design
+| campo | tipo | alterável | descrição 
+|-------|------|:-----------:|-----------
+| nome completo  |string(50)|sim| novo nome completo do usuário para cadastrar de novo agendamento. 
+| telefone |number(10)|sim| novo telefone do usuário para possível contato acerca do agendamento.
+| serviço |string(25)|sim| novo nome do serviço do qual deseja realizar.
+| data |date|sim| nova data em que o serviço será realizado.
+| hora |time|sim| novo horário em que o serviço será realizado.
 
 *Códigos de status*
 200 sucesso
