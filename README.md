@@ -8,13 +8,13 @@
 - [ ] CRUD Cadastro
 - [ ] CRUD Login
 - [ ] Interface de telas da solução, como:
-      -Unidades
-      -Serviços
-      -Profissionais
-      -Sobre Nós
-      -Contato
-      -Home
-      -Páginas de Agendamento/Cadastro/Login concluído com sucesso  
+      - []Unidades
+      - []Serviços
+      - []Profissionais
+      - []Sobre Nós
+      - []Contato
+      - []Home
+      - []Páginas de Agendamento/Cadastro/Login concluído com sucesso  
 - [ ] Dashboard
 - [ ] Autenticação
 
