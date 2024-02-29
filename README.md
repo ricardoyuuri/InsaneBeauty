@@ -2,7 +2,7 @@
 
 Repositório criado para o fim de guardar informações do software da InsaneBeauty
 
-# Requisitos 
+## Requisitos 
 
 - [ ] CRUD Agendamento
 - [ ] CRUD Cadastro
@@ -20,7 +20,7 @@ Repositório criado para o fim de guardar informações do software da InsaneBea
 
 # Endpoints 
 
-# Agendamento 
+## Agendamento 
 
 GET /agendamento/
 
