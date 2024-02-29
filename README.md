@@ -39,14 +39,14 @@ Retorna os detalhes de uma categoria com o 'id' informado.
 404 id não encontrado
 
 ---
-POST/categoria
+POST/agendamento 
 
-Cadastrar uma nova categoria.
+Cadastrar um novo agendamento.
 
 | campo | tipo | obrigatório | descrição 
 |-------|------|-------------|-----------
-| nome  |string|    sim      | um nome curto para identificar a categoria 
-| icone |string|    nao      | o nome do icone conforme biblioteca material design 
+| nome completo  |string(50)|    sim      | nome completo do usuário para cadastro de novo agendamento 
+| telefone |number(10)|    sim      | telefone do usuário para possível contato acerca do agendamento 
 
 *Códigos de status*
 201 criado com sucesso
