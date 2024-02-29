@@ -46,7 +46,7 @@ Retorna os detalhes de uma categoria com o 'id' informado.
 ---
 POST/agendamento 
 
-Cadastrar um novo agendamento no banco de dados.
+Cadastrar um novo agendamento no banco de dados da InsaneBeauty.
 
 | campo | tipo | obrigatório | descrição 
 |-------|------|:-----------:|-----------
