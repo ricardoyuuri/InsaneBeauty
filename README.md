@@ -7,8 +7,8 @@
 - [ ] CRUD Agendamento
 - [ ] CRUD Cadastro
 - [ ] CRUD Login
-- [ ] Interface de telas da solução, como:**
-      - []Unidades
+- [ ] Interface de telas da solução, como:
+      ##- []Unidades
       - []Serviços
       - []Profissionais
       - []Sobre Nós
