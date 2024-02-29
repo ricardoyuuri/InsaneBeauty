@@ -32,7 +32,7 @@ Lista todos os dados necessários para realizar um agendamento de serviço no so
 - Hora
 
 *Códigos de status*
-200 sucesso
+- 200 sucesso
 
 ---
 GET /agendamento/{id}
@@ -40,8 +40,8 @@ GET /agendamento/{id}
 Retorna os detalhes de uma categoria com o 'id' informado.
 
 *Códigos de status*
-200 sucesso
-404 id não encontrado
+- 200 sucesso
+- 404 id não encontrado
 
 ---
 POST/agendamento 
@@ -57,8 +57,8 @@ Cadastrar um novo agendamento no banco de dados da InsaneBeauty.
 | hora |time|sim| horário em que o serviço será realizado.
 
 *Códigos de status*
-201 criado com sucesso
-400 validação falhou
+- 201 criado com sucesso
+- 400 validação falhou
 
 ---
 DELETE /agendamento/{id}
@@ -66,8 +66,8 @@ DELETE /agendamento/{id}
 Deletar/cancelar agendamento com o 'id' informado.
 
 *Códigos de status*
-204 apagado/cancelado com sucesso
-404 id não encontrado
+- 204 apagado/cancelado com sucesso
+- 404 id não encontrado
 
 ---
 PUT /agendamento/{id}
@@ -83,9 +83,9 @@ Altera o agendamento com o 'id' informado.
 | hora |time|sim| novo horário em que o serviço será realizado.
 
 *Códigos de status*
-200 sucesso
-404 id não encontrado
-400 validação falhou 
+- 200 sucesso
+- 404 id não encontrado
+- 400 validação falhou 
 
 *Scheme*
 
