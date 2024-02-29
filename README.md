@@ -24,7 +24,12 @@ Repositório criado para o fim de guardar informações sobre o software da Insa
 
 GET /agendamento/
 
-Lista todos os dados necessários para realizar um agendamento de serviço no software da InsaneBeauty. O sistema irá requisitar dados como: Nome completo, telefone, serviço, data e hora.
+Lista todos os dados necessários para realizar um agendamento de serviço no software da InsaneBeauty. O sistema irá requisitar dados como: 
+- Nome completo
+- Telefone
+- Serviço
+- Data
+- Hora
 
 *Códigos de status*
 200 sucesso
