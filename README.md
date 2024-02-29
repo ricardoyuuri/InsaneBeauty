@@ -187,3 +187,71 @@ Altera o cadastro do usuário com o 'id' informado.
     "numero_residencial": "456"
 }
 ```
+
+## Login
+
+GET /login/
+
+Lista todos os dados necessários para realizar o login no software da InsaneBeauty. O sistema irá requisitar dados como: 
+- CPF
+- Senha
+
+*Códigos de status*
+- 200 sucesso
+
+---
+GET /login/{id}
+
+Retorna os detalhes de um login com o 'id' informado.
+
+*Códigos de status*
+- 200 sucesso
+- 404 id não encontrado
+
+---
+POST/login 
+
+Cadastra um novo login no banco de dados da InsaneBeauty.
+
+| campo | tipo | obrigatório | descrição 
+|-------|------|:-----------:|-----------
+| CPF |string(14)|sim| solicitação de CPF para cadastramento na plataforma.
+| senha |varchar(20)|sim| senha do usuário para cadastramento na plataforma.
+
+*Códigos de status*
+- 201 criado com sucesso
+- 400 validação falhou
+
+---
+DELETE /login/{id}
+
+Deleta login com o 'id' informado.
+
+*Códigos de status*
+- 204 apagado/cancelado com sucesso
+- 404 id não encontrado
+
+---
+PUT /login/{id}
+
+Altera o login do usuário com o 'id' informado.
+
+| campo | tipo | alterável | descrição 
+|-------|------|:-----------:|-----------
+| CPF |string(14)|sim| solicitação de CPF para cadastramento na plataforma.
+| senha |varchar(20)|sim| senha atualizada do usuário para cadastramento na plataforma.
+
+*Códigos de status*
+- 200 sucesso
+- 404 id não encontrado
+- 400 validação falhou
+
+*Scheme*
+
+```
+{
+    "id": 1,
+    "CPF": "123.456.789.10",
+    "senha": "123bananinha"
+}
+```
