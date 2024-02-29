@@ -104,7 +104,7 @@ Altera o agendamento com o 'id' informado.
 
 GET /cadastro/
 
-Lista todos os dados necessários para realizar um cadastro de um novo usuário no software da InsaneBeauty. O sistema irá requisitar dados como: 
+Lista todos os dados necessários para realizar o cadastro de um novo usuário no software da InsaneBeauty. O sistema irá requisitar dados como: 
 - Nome completo
 - Telefone
 - E-mail
