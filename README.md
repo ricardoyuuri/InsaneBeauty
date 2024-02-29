@@ -89,7 +89,7 @@ Altera o agendamento com o 'id' informado.
 
 *Scheme*
 
-js
+```
 {
     "id": 1,
     "nome_completo": "Beyoncé Giselle Knowles-Carter",
@@ -98,5 +98,5 @@ js
     "data": "2024-02-13",
     "hora": "10:00:00"
 }
-
+```
 
