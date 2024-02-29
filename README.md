@@ -14,7 +14,7 @@ Repositório criado para o fim de guardar informações do software da InsaneBea
 - Sobre Nós
 - Contato
 - Home
-- Páginas de Agendamento/Cadastro/Login concluído com sucesso  
+- Páginas de sucesso na conclução do Agendamento, Cadastro e Login.
 - [ ] Dashboard
 - [ ] Autenticação
 
