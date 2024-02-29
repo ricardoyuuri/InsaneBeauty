@@ -1,6 +1,6 @@
 # InsaneBeauty
 
-Repositório criado para o fim de guardar informações do software da InsaneBeauty
+Repositório criado para o fim de guardar informações sobre o software da InsaneBeauty
 
 ## Requisitos 
 
