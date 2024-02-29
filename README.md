@@ -37,7 +37,7 @@ Lista todos os dados necessários para realizar um agendamento de serviço no so
 ---
 GET /agendamento/{id}
 
-Retorna os detalhes de uma categoria com o 'id' informado.
+Retorna os detalhes de um agendamento com o 'id' informado.
 
 *Códigos de status*
 - 200 sucesso
