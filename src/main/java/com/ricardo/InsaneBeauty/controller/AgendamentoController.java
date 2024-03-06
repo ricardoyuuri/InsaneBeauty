@@ -77,7 +77,20 @@ public class AgendamentoController {
             return ResponseEntity.notFound().build();
 
         var agendamentoEncontrado = optionalAgendamento.get();
-        var agendamentoAtualizado = new Agendamento(id, agendamento.)
-    }
+        var agendamentoAtualizado = new Agendamento(id, agendamento.nomeCompleto(), agendamento.telefone(), agendamento.servico(), agendamento.data(), agendamento.hora());
+        repository.remove(agendamentoEncontrado);
+        repository.add(agendamentoAtualizado);
+
+        return ResponseEntity.ok().body(agendamentoAtualizado);
     
+}
+
+    private Optional<Agendamento> buscarAgendamentoPorId(Long id){
+        var optionalAgendamento = repository
+                .stream()
+                .filter(c -> c.id().equals(id))
+                .findFirst();
+        return optionalAgendamento;
+    }
+
 }
