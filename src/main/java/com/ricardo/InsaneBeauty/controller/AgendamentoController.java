@@ -35,7 +35,7 @@ public class AgendamentoController {
     @PostMapping
     public ResponseEntity<Agendamento> create(@RequestBody Agendamento agendamento){
         log.info("Cadastrando agendamento: {}", agendamento);
-        respository.add(agendamento);
+        repository.add(agendamento);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(agendamento);
@@ -48,7 +48,7 @@ public class AgendamentoController {
         var optionalAgendamento = buscarAgendamentoPorId(id);
 
         if (optionalAgendamento.isEmpty())
-            return ResponseEntity.notFound().build();return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
 
         return ResponseEntity.ok(optionalAgendamento.get());
     }

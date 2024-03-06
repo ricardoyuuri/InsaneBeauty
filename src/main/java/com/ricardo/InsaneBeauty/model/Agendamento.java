@@ -1,5 +1,7 @@
 package com.ricardo.InsaneBeauty.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Random;
 public record Agendamento(Long id, String nomeCompleto, String telefone, String servico, LocalDate data, LocalDateTime hora) {
 
