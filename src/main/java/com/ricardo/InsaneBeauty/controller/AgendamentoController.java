@@ -77,7 +77,7 @@ public class AgendamentoController {
             return ResponseEntity.notFound().build();
 
         var agendamentoEncontrado = optionalAgendamento.get();
-        var agendamentoAtualizado = new Agendamento(id, agendamento.nomeCompleto(), agendamento.telefone(), agendamento.servico(), agendamento.data(), agendamento.hora());
+        var agendamentoAtualizado = new Agendamento(id, agendamento.nome_completo(), agendamento.telefone(), agendamento.servico(), agendamento.data(), agendamento.hora());
         repository.remove(agendamentoEncontrado);
         repository.add(agendamentoAtualizado);
 
