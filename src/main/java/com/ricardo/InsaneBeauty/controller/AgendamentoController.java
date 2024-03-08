@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ricardo.InsaneBeauty.model.Agendamento;
+import com.ricardo.InsaneBeauty.repository.AgendamentoRepository;
 
 @RestController
 @RequestMapping("agendamento")
@@ -25,72 +27,73 @@ public class AgendamentoController {
 
     Logger log = LoggerFactory.getLogger(getClass());
 
-    List<Agendamento>  repository = new ArrayList<>();
+    @Autowired
+    AgendamentoRepository categoriaRepository;
 
     @GetMapping
     public List<Agendamento> index(){
-        return repository;
+        return categoriaRepository.findAll();
     }
     
     @PostMapping
     public ResponseEntity<Agendamento> create(@RequestBody Agendamento agendamento){
         log.info("Cadastrando agendamento: {}", agendamento);
-        repository.add(agendamento);
+        categoriaRepository.save(agendamento);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(agendamento);
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<Agendamento> get(@PathVariable Long id){
-        log.info("Buscar por id: {}", id);
+//     @GetMapping("{id}")
+//     public ResponseEntity<Agendamento> get(@PathVariable Long id){
+//         log.info("Buscar por id: {}", id);
 
-        var optionalAgendamento = buscarAgendamentoPorId(id);
+//         var optionalAgendamento = buscarAgendamentoPorId(id);
 
-        if (optionalAgendamento.isEmpty())
-            return ResponseEntity.notFound().build();
+//         if (optionalAgendamento.isEmpty())
+//             return ResponseEntity.notFound().build();
 
-        return ResponseEntity.ok(optionalAgendamento.get());
-    }
+//         return ResponseEntity.ok(optionalAgendamento.get());
+//     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Object> destroy(@PathVariable Long id){
-        log.info("Apagando agendamento {}", id);
+//     @DeleteMapping("{id}")
+//     public ResponseEntity<Object> destroy(@PathVariable Long id){
+//         log.info("Apagando agendamento {}", id);
 
-        var optionalAgendamento = buscarAgendamentoPorId(id);
+//         var optionalAgendamento = buscarAgendamentoPorId(id);
 
-        if (optionalAgendamento.isEmpty())
-            return ResponseEntity.notFound().build();
+//         if (optionalAgendamento.isEmpty())
+//             return ResponseEntity.notFound().build();
 
-        repository.remove(optionalAgendamento.get());
+//         repository.remove(optionalAgendamento.get());
 
-        return ResponseEntity.noContent().build();
-    }
+//         return ResponseEntity.noContent().build();
+//     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody Agendamento agendamento){
-        log.info("Atualizando agendamento id {} para {}", id, agendamento);
+//     @PutMapping("{id}")
+//     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody Agendamento agendamento){
+//         log.info("Atualizando agendamento id {} para {}", id, agendamento);
 
-        var optionalAgendamento = buscarAgendamentoPorId(id);
+//         var optionalAgendamento = buscarAgendamentoPorId(id);
 
-        if (optionalAgendamento.isEmpty())
-            return ResponseEntity.notFound().build();
+//         if (optionalAgendamento.isEmpty())
+//             return ResponseEntity.notFound().build();
 
-        var agendamentoEncontrado = optionalAgendamento.get();
-        var agendamentoAtualizado = new Agendamento(id, agendamento.nome_completo(), agendamento.telefone(), agendamento.servico(), agendamento.data(), agendamento.hora());
-        repository.remove(agendamentoEncontrado);
-        repository.add(agendamentoAtualizado);
+//         var agendamentoEncontrado = optionalAgendamento.get();
+//         var agendamentoAtualizado = new Agendamento(id, agendamento.nome_completo(), agendamento.telefone(), agendamento.servico(), agendamento.data(), agendamento.hora());
+//         repository.remove(agendamentoEncontrado);
+//         repository.add(agendamentoAtualizado);
 
-        return ResponseEntity.ok().body(agendamentoAtualizado);
+//         return ResponseEntity.ok().body(agendamentoAtualizado);
     
-}
+// }
 
-    private Optional<Agendamento> buscarAgendamentoPorId(Long id){
-        var optionalAgendamento = repository
-                .stream()
-                .filter(c -> c.id().equals(id))
-                .findFirst();
-        return optionalAgendamento;
-    }
+//     private Optional<Agendamento> buscarAgendamentoPorId(Long id){
+//         var optionalAgendamento = repository
+//                 .stream()
+//                 .filter(c -> c.id().equals(id))
+//                 .findFirst();
+//         return optionalAgendamento;
+//     }
 
 }
