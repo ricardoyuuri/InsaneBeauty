@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.ricardo.InsaneBeauty.model.Agendamento;
 import com.ricardo.InsaneBeauty.repository.AgendamentoRepository;
@@ -28,72 +30,59 @@ public class AgendamentoController {
     Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    AgendamentoRepository categoriaRepository;
+    AgendamentoRepository agendamentoRepository;
 
     @GetMapping
     public List<Agendamento> index(){
-        return categoriaRepository.findAll();
+        return agendamentoRepository.findAll();
     }
     
     @PostMapping
-    public ResponseEntity<Agendamento> create(@RequestBody Agendamento agendamento){
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Agendamento create(@RequestBody Agendamento agendamento){
         log.info("Cadastrando agendamento: {}", agendamento);
-        categoriaRepository.save(agendamento);
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(agendamento);
+        agendamentoRepository.save(agendamento);
+        return agendamento;
     }
 
-//     @GetMapping("{id}")
-//     public ResponseEntity<Agendamento> get(@PathVariable Long id){
-//         log.info("Buscar por id: {}", id);
+    @GetMapping("{id}")
+    public ResponseEntity<Agendamento> get(@PathVariable Long id){
+        log.info("Buscar por id: {}", id);
 
-//         var optionalAgendamento = buscarAgendamentoPorId(id);
+        return agendamentoRepository
+            .findById(id)
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
+    }
 
-//         if (optionalAgendamento.isEmpty())
-//             return ResponseEntity.notFound().build();
+    @DeleteMapping("{id}")
+    public ResponseEntity<Object> destroy(@PathVariable Long id){
+        log.info("Apagando agendamento {}", id);
 
-//         return ResponseEntity.ok(optionalAgendamento.get());
-//     }
+        verificarSeExisteAgendamento(id);
 
-//     @DeleteMapping("{id}")
-//     public ResponseEntity<Object> destroy(@PathVariable Long id){
-//         log.info("Apagando agendamento {}", id);
+        agendamentoRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 
-//         var optionalAgendamento = buscarAgendamentoPorId(id);
+    @PutMapping("{id}")
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody Agendamento agendamento){
+        log.info("Atualizando agendamento id {} para {}", id, agendamento);
 
-//         if (optionalAgendamento.isEmpty())
-//             return ResponseEntity.notFound().build();
+        verificarSeExisteAgendamento(id);
 
-//         repository.remove(optionalAgendamento.get());
-
-//         return ResponseEntity.noContent().build();
-//     }
-
-//     @PutMapping("{id}")
-//     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody Agendamento agendamento){
-//         log.info("Atualizando agendamento id {} para {}", id, agendamento);
-
-//         var optionalAgendamento = buscarAgendamentoPorId(id);
-
-//         if (optionalAgendamento.isEmpty())
-//             return ResponseEntity.notFound().build();
-
-//         var agendamentoEncontrado = optionalAgendamento.get();
-//         var agendamentoAtualizado = new Agendamento(id, agendamento.nome_completo(), agendamento.telefone(), agendamento.servico(), agendamento.data(), agendamento.hora());
-//         repository.remove(agendamentoEncontrado);
-//         repository.add(agendamentoAtualizado);
-
-//         return ResponseEntity.ok().body(agendamentoAtualizado);
+        agendamento.setId(id);
+        agendamentoRepository.save(agendamento);
+        return ResponseEntity.ok(agendamento);
     
-// }
+}
 
-//     private Optional<Agendamento> buscarAgendamentoPorId(Long id){
-//         var optionalAgendamento = repository
-//                 .stream()
-//                 .filter(c -> c.id().equals(id))
-//                 .findFirst();
-//         return optionalAgendamento;
-//     }
+    private void verificarSeExisteAgendamento(Long id) {
+        agendamentoRepository
+          .findById(id)
+          .orElseThrow(
+              () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Agendamento não encontrado" )
+        );
+}
 
 }
