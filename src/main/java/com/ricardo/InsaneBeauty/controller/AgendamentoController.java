@@ -1,11 +1,11 @@
 package com.ricardo.InsaneBeauty.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +23,12 @@ import org.springframework.web.server.ResponseStatusException;
 import com.ricardo.InsaneBeauty.model.Agendamento;
 import com.ricardo.InsaneBeauty.repository.AgendamentoRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("agendamento")
+@Slf4j
 public class AgendamentoController {
-
-    Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     AgendamentoRepository agendamentoRepository;
@@ -38,11 +39,10 @@ public class AgendamentoController {
     }
     
     @PostMapping
-    @ResponseStatus(code = HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     public Agendamento create(@RequestBody Agendamento agendamento){
         log.info("Cadastrando agendamento: {}", agendamento);
-        agendamentoRepository.save(agendamento);
-        return agendamento;
+        return agendamentoRepository.save(agendamento);
     }
 
     @GetMapping("{id}")
@@ -56,25 +56,23 @@ public class AgendamentoController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Object> destroy(@PathVariable Long id){
+    @ResponseStatus(NO_CONTENT)
+    public void destroy(@PathVariable Long id){
         log.info("Apagando agendamento {}", id);
 
         verificarSeExisteAgendamento(id);
 
         agendamentoRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody Agendamento agendamento){
+    public Agendamento update(@PathVariable Long id, @RequestBody Agendamento agendamento){
         log.info("Atualizando agendamento id {} para {}", id, agendamento);
 
         verificarSeExisteAgendamento(id);
 
         agendamento.setId(id);
-        agendamentoRepository.save(agendamento);
-        return ResponseEntity.ok(agendamento);
-    
+        return agendamentoRepository.save(agendamento);
 }
 
     private void verificarSeExisteAgendamento(Long id) {
