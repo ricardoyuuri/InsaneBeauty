@@ -37,6 +37,9 @@ public class Agendamento {
     @Future(message = "{agendamento.data.future}") 
     private LocalDate data;
 
+    @NotNull(message = "{agendamento.hora.notnull}")
+    @DateTimeFormat(pattern = "HH:MM:SS")
+    //@Pattern(regexp = "^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$", message = "{agendamento.hora.pattern}")
     private LocalTime hora;
 
 }
