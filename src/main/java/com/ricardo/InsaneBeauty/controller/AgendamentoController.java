@@ -23,6 +23,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.ricardo.InsaneBeauty.model.Agendamento;
 import com.ricardo.InsaneBeauty.repository.AgendamentoRepository;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -40,7 +41,7 @@ public class AgendamentoController {
     
     @PostMapping
     @ResponseStatus(CREATED)
-    public Agendamento create(@RequestBody Agendamento agendamento){
+    public Agendamento create(@RequestBody @Valid Agendamento agendamento){
         log.info("Cadastrando agendamento: {}", agendamento);
         return agendamentoRepository.save(agendamento);
     }

@@ -19,28 +19,29 @@ public class Cadastro {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "{cadastro.nome_completo.notblank}")
     private String nome_completo;
 
-    @NotBlank 
-    @Pattern(regexp = "\\d{10,11}", message = "Por favor, forneça um número de telefone válido com 10 ou 11 dígitos.")
+    @NotBlank(message = "{cadastro.telefone.notblank}")
+    @Pattern(regexp = "\\d{10,11}", message = "{cadastro.telefone.pattern}")
     private String telefone;
 
-    @NotBlank  @Email(message = "Por favor, forneça um endereço de e-mail válido.")
+    @NotBlank(message = "{cadastro.email.notblank}")
+    @Email(message = "{cadastro.email.email}")
     private String email;
 
-    @NotBlank 
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$", 
-             message = "A senha deve conter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.")
+    @NotBlank(message = "{cadastro.senha.notblank}")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$", message = "{cadastro.senha.pattern}")
     private String senha;
 
-    @NotBlank @CPF(message = "Por favor, forneça um CPF válido.")
+    @NotBlank(message = "{cadastro.cpf.notblank}")
+    @CPF(message = "{cadastro.cpf.cpf}")
     private String cpf;
 
-    @NotBlank
-    @Pattern(regexp = "\\d{5}-\\d{3}", message = "Por favor, forneça um CEP válido no formato XXXXX-XXX.")
+    @NotBlank(message = "{cadastro.cep.notblank}")
+    @Pattern(regexp = "\\d{5}-\\d{3}", message = "{cadastro.cep.pattern}")
     private String cep;
 
-    @NotBlank
+    @NotBlank(message = "{cadastro.numero_residencial.notblank}")
     private String numero_residencial;
 }
