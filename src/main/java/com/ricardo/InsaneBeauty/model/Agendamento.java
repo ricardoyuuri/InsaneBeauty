@@ -14,6 +14,8 @@ import java.time.LocalTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.ricardo.InsaneBeauty.validation.TipoServico;
+
 @Data
 @Entity
 public class Agendamento {
@@ -29,6 +31,7 @@ public class Agendamento {
     @Pattern(regexp = "\\d{10,11}", message = "{agendamento.telefone.pattern}")
     private String telefone;
 
+    @TipoServico
     @NotBlank(message = "{agendamento.servico.notblank}")
     private String servico;
 
